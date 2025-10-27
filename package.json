@@ -10,9 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
+    "axios": "^1.12.2",
+    "body-parser": "^2.2.0",
+    "cheerio": "^1.1.2",
     "express": "^5.1.0",
-    "mongoose": "^8.19.2"
+    "if-env": "^1.0.4",
+    "mongoose": "^8.19.2",
+    "path": "^0.12.7"
   }
 }
