@@ -11,8 +11,7 @@ router.route("/article/:id")
     .put(articleController.update)
     .delete(articleController.remove);
 
-router.route("/search/?")
+router.route("/search/")
     .get(searchController);
 
 module.exports = router;
-
