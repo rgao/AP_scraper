@@ -12,12 +12,9 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 };
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/aparticles", 
-{ useNewUrlParser: true, useUnifiedTopology: true }, function (error) {
-    if (error) {
-        return console.log('failed to connect to database');
-    }
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/aparticles")
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => console.log(err));
 
 const routes = require("./routes/index.js");
 app.use(routes);
