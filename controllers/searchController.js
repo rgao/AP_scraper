@@ -5,7 +5,7 @@ module.exports = (request, response) => {
 
         const query = request.query
 
-        const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortBy}`;
+        const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortValue}`;
         
         axios.get(queryURL).then(res => {
             var $ = cheerio.load(res.data);
@@ -20,7 +20,7 @@ module.exports = (request, response) => {
                 article.image = $(element).find("img").attr("src");
                 article.description = $(element).find("PagePromo-description").find(".PagePromoContentIcons-text").text();
 
-                if (articleArray.length < 10) {
+                if (articleArray.length < 20) {
                     articleArray.push(article);
                 }
             });
