@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    searchArticles: (topic, sortBy) => {
-        return axios.get(`/api/search/?topic=${topic}&sortBy=${sortBy}`);
+    searchArticles: (topic, sortValue) => {
+        return axios.get(`/api/search/?topic=${topic}&sortBy=${sortValue}`);
     },
 
     getArticles: () => {
