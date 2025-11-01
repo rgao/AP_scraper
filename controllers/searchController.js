@@ -4,6 +4,7 @@ const cheerio = require("cheerio");
 module.exports = (request, response) => {
 
         const query = request.query
+        // console.log(query.topic, query.sortValue);
 
         const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortValue}`;
         
@@ -28,4 +29,4 @@ module.exports = (request, response) => {
             response.json(articleArray);
 
         }).catch(error => console.log(error));
-    }
+    };

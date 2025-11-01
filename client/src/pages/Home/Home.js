@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import API from "../../utils/API.js";
+import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';
 // import './Home.css'
 
 function Home() {
@@ -10,6 +13,7 @@ function Home() {
     const [topicError, setTopicError] = useState("");
 
     const handleChange = (e) => {
+        // console.log(e.target.name, e.target.value);
         const { name, value } = e.target;
         if (name === "topic") {
             setTopic(value);
@@ -35,15 +39,22 @@ function Home() {
 
             API.searchArticles(topic, sortValue)
                 .then(response => {
+                    // console.log(response.data);
                     setArticles(response.data);
                     setTopic("");
-                    console.log(response.data);
                 })
                 .catch(error => console.log(error));
 
             console.log(`Searching for articles on topic: ${topic} sorted by: ${sortBy}`);
         }
-    }
+    };
+
+    const handleSave = (article) => {
+        // console.log("Saving article:", article);
+        API.saveArticle(article)
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error));
+    };
 
     return (
         <div className="home-container">
@@ -58,7 +69,7 @@ function Home() {
                         <input
                             type="text"
                             className="form-control"
-                            id="topic"
+                            name="topic"
                             value={topic}
                             onChange={handleChange}
                             placeholder="Enter search topic"
@@ -71,7 +82,7 @@ function Home() {
                         <label htmlFor="sortBy">Sort By:</label>
                         <select
                             className="form-control"
-                            id="sortBy"
+                            name="sortBy"
                             value={sortBy}
                             onChange={handleChange}
                         >
@@ -80,11 +91,33 @@ function Home() {
                             <option value="oldest">Oldest</option>
                         </select>
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Search</button>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>
+                        Search Articles
+                    </Button>
+                    <Link to="/saved" className="btn btn-secondary ml-2">
+                        View Saved Articles
+                    </Link>
                 </form>
             </div>
+            
+            <div className="article-results">
+                {articles.length > 0 ? (
+                    articles.map((article, index) => (
+                        <SearchedArticle
+                            key={index}
+                            title={article.title}
+                            description={article.description}
+                            author={article.author}
+                            url={article.url}
+                            image={article.image}
+                            save={() => handleSave(article)}
+                        />
+                    ))
+                ) : (
+                    <p>No articles found. Please enter a topic and search.</p>
+                )}
+            </div>
         </div>
-
     );
 }
 

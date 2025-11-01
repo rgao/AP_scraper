@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const articleController = require("../controllers/articleController");
-const searchController = require("../controllers/searchController");
+const articleController = require("../controllers/articleController.js");
+const searchController = require("../controllers/searchController.js");
 
-router.route("/article")
+router.route("/articles")
     .get(articleController.findAll)
     .post(articleController.save)
 
