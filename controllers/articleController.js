@@ -17,19 +17,28 @@ module.exports = {
     },
 
     save: (request, response) => {
-        console.log(request.body);
+        // console.log(request.body);
         db.Article
             .create(request.body)
             .then(dbArticle => response.json(dbArticle))
             .catch(error => response.status(422).json(error));
     },
 
-    update: (request, response) => {
-        db.Article
-            .findById({ _id: request.params.id })
-            .update({ commentary: request.body })
-            .then(dbArticle => response.json(dbArticle))
-            .catch(error => response.status(422).json(error));
+    update: async (req, res) => {
+        try {
+            const { id } = req.params; // Get the ID from URL parameters
+            const updatedData = req.body; // Get the updated data from request body
+
+            const article = await db.Article.findByIdAndUpdate(id, { commentary: updatedData }, { new: true }); // Mongoose method to find and update
+
+            if (!article) {
+                return res.status(404).json({ message: 'Article not found' });
+            }
+
+            res.status(200).json(article);
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }   
     },
 
     remove: async (req, res) => {

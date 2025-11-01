@@ -15,6 +15,7 @@ function ArticleThread() {
     const getArticle = (id) => {
         API.getArticle(id)
             .then(response => {
+                // console.log(response.data)
                 setArticle(response.data);
                 setCommentArray(response.data.commentary);
             }).catch(error => console.log(error));
@@ -35,22 +36,23 @@ function ArticleThread() {
         setCommentDisable(btn_status);
     };
 
-    const handleUpdate = (index, newComment) => {
+    const handleSubmit = (id, newComment) => {
+        console.log(newComment);
         var comments = comment_array;
-        comments[index] = newComment;
+        comments.push(newComment);
         setCommentArray(comments);
-    };
-
-    const handleSubmit = (id, comment) => {
-        var comments = comment_array;
-        comments.push(comment);
-
         setSavedCommentMessage("Comment Saved");
         setComment("");
         setCommentDisable(true);
-        setCommentArray(comments);
-        // console.log(comment_array);
+        console.log(comment_array)
+
         handleUpdate(id, comments);
+    };
+
+    const handleUpdate = (id, comment) => {
+        API.updateArticle(id, comment)
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error));
     };
 
     const handleDelete = (articleId, commentIndex) => {
@@ -58,12 +60,11 @@ function ArticleThread() {
         var comments = comment_array;
         comments.splice(commentIndex, 1);
         setCommentArray(comments);
-        console.log(comments)
         handleUpdate(articleId, comments);
-    }
+        getArticle(articleId);
+    };
 
     useState(() => {
-        console.log(comment_array);
         getArticle(articleId);
     }, []);
 
