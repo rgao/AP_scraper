@@ -16,6 +16,7 @@ export default {
     },
 
     updateArticle: (id, comments) => {
+        console.log(id, comments)
         return axios.put("http://localhost:5000/api/article/" + id, comments);
     },
 
