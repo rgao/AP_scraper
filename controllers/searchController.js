@@ -14,12 +14,12 @@ module.exports = (request, response) => {
             
             $(".PagePromo").each((i, element) => {
                 var article = {};
-
-                article.title = $(element).find("PagePromo-title").find(".PagePromoContentIcons-text").text();
+            
+                article.title = $(element).attr("data-gtm-region");
                 article.url = $(element).find(".Link").attr("href");
-                article.time = $(element).find("Timestamp-template").text();
+                article.time = $(element).find(".Timestamp-template").text();
                 article.image = $(element).find("img").attr("src");
-                article.description = $(element).find("PagePromo-description").find(".PagePromoContentIcons-text").text();
+                article.description = $(element).find(".PagePromo-description").find(".PagePromoContentIcons-text").text();
 
                 if (articleArray.length < 20) {
                     articleArray.push(article);

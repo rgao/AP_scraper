@@ -4,17 +4,17 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
     title: {
         type: String,
-        required: false
+        required: true
     },
 
     url: {
         type: String,
-        required: false
+        required: true
     },
 
     description: {
         type: String,
-        required: false,
+        required: true
     },
 
     image: {
@@ -24,7 +24,7 @@ const articleSchema = new Schema({
 
     author: {
         type: String,
-        required: false
+        required: true
     },
 
     commentary: {
