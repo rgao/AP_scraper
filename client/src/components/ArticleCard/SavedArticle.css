@@ -1,0 +1,64 @@
+.content-col, .img-col {
+    border-bottom-color: gray;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+.article {
+    color: black;
+    position: relative;
+}
+
+.article-img {
+    width: 100%;
+}
+
+#article-title {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.6em;
+    font-family: 'Oxygen', sans-serif;
+    line-height: 1.25;
+    text-align: left;
+}
+
+#article-desc {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+#article-date {
+    color: rgb(71, 71, 71);
+    font-weight: bold;
+    text-align: left;
+    font-size: .85em;
+    text-transform: uppercase;
+}
+
+.content-col {
+    position: relative;
+}
+
+.thread-btn-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.delete-btn-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#btn-thread {
+    background-color: darkgreen;
+    color: white;
+    border-radius: 0;
+}
+
+#btn-delete {
+    background-color: darkred;
+    color: white;
+    border-radius: 0;
+}

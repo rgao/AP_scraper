@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import API from "../../utils/API.js";
 import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';
-// import './Home.css'
+import './Home.css'
 
 function Home() {
 
@@ -60,7 +60,6 @@ function Home() {
         <div className="home-container">
             <h1>Welcome to the AP News Scraper</h1>
             <p>This application allows you to search and save articles from the Associated Press News website.</p>
-            <p>Use the navigation bar to explore the features of the app.</p>
 
             <div className='form-container'>
                 <form>
@@ -107,7 +106,7 @@ function Home() {
                             key={index}
                             title={article.title}
                             description={article.description}
-                            author={article.author}
+                            date={article.date}
                             url={article.url}
                             image={article.image}
                             save={() => handleSave(article)}

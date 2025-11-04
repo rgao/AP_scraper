@@ -11,7 +11,7 @@ export default {
     },
 
     saveArticle: saveData => {
-        // console.log(saveData);
+        console.log(saveData);
         return axios.post("http://localhost:5000/api/articles/", saveData);
     },
 

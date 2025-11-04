@@ -1,0 +1,72 @@
+form {
+    max-width: 420px;
+    border-radius: 2%;
+    opacity: .9;
+    font-family: 'Impact', fantasy;
+}
+
+#search_icon {
+    max-width: 5em;
+    max-height: 5em;
+}
+
+input {
+    font-weight: bold;
+}
+
+label {
+    font-family: 'Fredericka the Great', cursive;
+    font-weight: bold;
+}
+
+.date-input {
+    display: inline-block;
+    width: 47%;
+}
+
+#invalid-topic {
+    color: red;
+}
+
+#invalid-date {
+    color: blue;
+    font-size: 12px;
+}
+
+#query-btn,
+#saved-btn {
+    width: 80%;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+#query-btn {
+    background: linear-gradient(to bottom right, purple, navy);
+}
+
+#saved-btn {
+    background: linear-gradient(to bottom right, green, rgb(64, 0, 128));
+}
+
+#query-btn:hover {
+    background: purple
+}
+
+#saved-link {
+    color: white
+}
+
+#saved-btn:hover {
+    background: green;
+}
+
+#saved-link:hover {
+    text-decoration: none;
+}
+
+.result-title {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 2em;
+    font-weight: bold;
+}
