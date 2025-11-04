@@ -1,8 +1,33 @@
+.home-container {
+    font-family: 'Impact', sans-serif;
+}
+
+.form-container {
+    text-align: left;
+}
+
 form {
-    max-width: 420px;
-    border-radius: 2%;
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
     opacity: .9;
-    font-family: 'Impact', fantasy;
+}
+
+label {
+    text-transform: uppercase;
+}
+
+.form-control, .form-select {
+    background-color: rgb(240, 240, 240); 
+    border-radius: 0;
+}
+
+#topic-input {
+    max-width: 1080px;
+}
+
+#select-input {
+    max-width: 240px;
 }
 
 #search_icon {
@@ -10,63 +35,20 @@ form {
     max-height: 5em;
 }
 
-input {
-    font-weight: bold;
+#search-btn {
+    background-color: darkblue;
+    color: white;
+    border-radius: 0;
 }
 
-label {
-    font-family: 'Fredericka the Great', cursive;
-    font-weight: bold;
+#search-btn:hover {
+    background-color: green;
 }
 
-.date-input {
-    display: inline-block;
-    width: 47%;
+#search-btn:active {
+    background-color: rgb(0, 75, 0);
 }
 
-#invalid-topic {
-    color: red;
-}
-
-#invalid-date {
-    color: blue;
-    font-size: 12px;
-}
-
-#query-btn,
-#saved-btn {
-    width: 80%;
-    border: 2px solid skyblue;
-    border-radius: 10px;
-    font-family: 'Berkshire Swash', cursive;
-}
-
-#query-btn {
-    background: linear-gradient(to bottom right, purple, navy);
-}
-
-#saved-btn {
-    background: linear-gradient(to bottom right, green, rgb(64, 0, 128));
-}
-
-#query-btn:hover {
-    background: purple
-}
-
-#saved-link {
-    color: white
-}
-
-#saved-btn:hover {
-    background: green;
-}
-
-#saved-link:hover {
-    text-decoration: none;
-}
-
-.result-title {
-    font-family: 'Fredericka the Great', cursive;
-    font-size: 2em;
-    font-weight: bold;
+#no-article-message {
+    font-size: 1.2em;
 }
