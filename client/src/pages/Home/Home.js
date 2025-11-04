@@ -57,13 +57,10 @@ function Home() {
     };
 
     return (
-        <div className="home-container">
-            <h1>Welcome to the AP News Scraper</h1>
-            <p>This application allows you to search and save articles from the Associated Press News website.</p>
-
-            <div className='form-container'>
+        <div className="home-container mt-4">
+            <div className='form-container mt-3 mb-5'>
                 <form>
-                    <div className="form-group">
+                    <div className="form-group mb-3" id="topic-input">
                         <label htmlFor="topic">Search Topic:</label>
                         <input
                             type="text"
@@ -71,16 +68,16 @@ function Home() {
                             name="topic"
                             value={topic}
                             onChange={handleChange}
-                            placeholder="Enter search topic"
+                            placeholder="Keyword search..."
                         />
                     </div>
                     <div id="topic-error" className="text-danger">
                         {topicError}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3" id="select-input">
                         <label htmlFor="sortBy">Sort By:</label>
                         <select
-                            className="form-control"
+                            className="form-select"
                             name="sortBy"
                             value={sortBy}
                             onChange={handleChange}
@@ -90,15 +87,12 @@ function Home() {
                             <option value="oldest">Oldest</option>
                         </select>
                     </div>
-                    <Button variant="primary" type="submit" onClick={handleSubmit}>
+                    <Button variant="primary" type="submit" id="search-btn" onClick={handleSubmit}>
                         Search Articles
                     </Button>
-                    <Link to="/saved" className="btn btn-secondary ml-2">
-                        View Saved Articles
-                    </Link>
                 </form>
             </div>
-            
+
             <div className="article-results">
                 {articles.length > 0 ? (
                     articles.map((article, index) => (
@@ -113,7 +107,7 @@ function Home() {
                         />
                     ))
                 ) : (
-                    <p>No articles found. Please enter a topic and search.</p>
+                    <p id="no-article-message">Search and save articles from the Associated Press</p>
                 )}
             </div>
         </div>

@@ -1,0 +1,18 @@
+/* .article-thread-container {
+    margin: 5px;
+} */
+
+#click-img-comment {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8em;
+}
+
+.comment-col {
+    text-align: left;
+}
+
+#save-comment-btn {
+    border-radius: 0;
+}

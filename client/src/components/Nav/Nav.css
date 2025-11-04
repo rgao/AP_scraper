@@ -1,0 +1,36 @@
+.navbar {
+    height: 100px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.article-link {
+    text-decoration: none;
+    color: white;
+}
+
+.article-link:hover {
+    color: gray;
+}
+
+#ap-logo {
+    height: auto;
+    max-height: 80px;
+    width: auto;
+    max-width: 80px;
+}
+
+#logo-col {
+    text-align: right;
+}
+
+#search-col {
+    text-align: center;
+}
+
+#saved-col {
+    text-align: left;
+}

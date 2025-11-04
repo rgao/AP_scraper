@@ -3,6 +3,7 @@ import { Button, Row, Col } from 'react-bootstrap'
 import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API.js";
 import CommentCard from "../../components/CommentCard/CommentCard.js"
+import "./ArticleThread.css"
 
 function ArticleThread() {
     const [article, setArticle] = useState({});
@@ -69,22 +70,28 @@ function ArticleThread() {
     }, []);
 
     return (
-        <div className="container article-thread-container">
-            <Row className="mt-4 mb-4">
-                <Col>
-                    <h2>{article.title}</h2>
-                    <p className="text-muted">by {article.author} </p>
-                    <img src={article.image} alt={article.title} className="img-fluid mb-3" />
-                    <p>{article.description}</p>
-                    <a href={article.url} target="_blank" rel="noopener noreferrer">Read Full Article</a>
+        <div className="container px-4">
+           <Row className="article-thread my-5 ml-0 mr-0">
+                <Col />
+                <Col md="5" lg="6" xl="7" className="content-col ml-auto px-0 pb-3">
+                    <header className="mb-1" id="article-title">{article.title}</header>
+                    <p className="mt-4" id="article-desc">{article.description}</p>
+                    <p className="mb-5 "id="article-date">{article.date}</p>
+
+                    <div className="text-center" id="click-img-comment">
+                        <p>Click image to read full article</p>
+                    </div>
                 </Col>
-                <Button className="back-btn btn-primary">
-                    <Link className="back-link" to="/saved">Back to Saved Articles</Link>
-                </Button>
+                <Col md="5" lg="4" xl="3" className="mr-auto px-0 img-col pb-3">
+                    <a href={article.url}>
+                        <img className="article-img" src={article.image} alt="" />
+                    </a>
+                </Col>
+                <Col />
             </Row>
 
             <Row className="mb-4">
-                <Col>
+                <Col xs="10" className="comment-col mx-auto">
                     <h5>Add a Comment</h5>
                     <textarea
                         name="comment"
@@ -96,6 +103,7 @@ function ArticleThread() {
                     ></textarea>
                     <Button
                         className="btn btn-primary"
+                        id="save-comment-btn"
                         disabled={comment_disable}
                         onClick={() => handleSubmit(article._id, comment)}
                     >
@@ -104,7 +112,7 @@ function ArticleThread() {
                 </Col>
             </Row>
 
-            <div className="comment-section mb-5">
+            <div className="comment-section my-5">
                 <h5>Comments</h5>
                 {comment_array ? (
                     comment_array.map((comm, index) => (
