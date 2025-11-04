@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import API from '../../utils/API';
 import SavedArticle from '../../components/ArticleCard/SavedArticle.js';
-// import './Saved.css'
+import './Saved.css'
+import { Row, Col } from 'react-bootstrap';
 
 function Saved() {
 
@@ -14,7 +15,7 @@ function Saved() {
     const getSavedArticles = () => {
         API.getArticles()
             .then(response => {
-                // console.log(response.data);
+                console.log(response.data);
                 setSavedArticles(response.data);
                 checkArticles(response.data);
             })
@@ -47,21 +48,25 @@ function Saved() {
     }, []);
 
     return (
-        <div className="container">
-            <div className="text-center" id="no-message">
+        <div className="container mb-5">
+            <Row className="text-center" id="no-message">
                 <p className="pt-3">{message}</p>
                 <Link to="/">{queryMessage}</Link>
-            </div>
-
-            <div className="text-center mb-2" id="saved-message">
-                <p>{savedMessage}</p>
-            </div>
+            </Row>
+            <Row className="mt-3 mb-4" id="saved-message-container">
+                <Col />
+                <Col xl="10">
+                    <p className="pb-5" id="saved-message">{savedMessage}</p>
+                </Col>
+                <Col />
+            </Row>
 
             {savedArticles.map((article, i) => (
                 <SavedArticle
                     article_id={article._id}
                     title={article.title}
-                    author={article.author}
+                    description={article.description}
+                    date={article.date}
                     url={article.url}
                     image={article.image}
                     delete={() => handleDelete(article._id)}

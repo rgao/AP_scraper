@@ -1,0 +1,11 @@
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: rgb(200, 200, 200);
+    text-transform: uppercase;
+    font-size: .9em;
+    background-color: black;
+    opacity: 1;
+    height: 35px;
+}

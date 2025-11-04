@@ -1,0 +1,17 @@
+#saved-message-container {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#saved-message {
+    text-align: left;
+    border-bottom: black solid 2px;
+}
+
+#no-message {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5em;
+}

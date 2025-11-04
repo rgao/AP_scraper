@@ -22,7 +22,7 @@ const articleSchema = new Schema({
         required: false
     },
 
-    author: {
+    date: {
         type: String,
         required: true
     },
