@@ -11,8 +11,11 @@ function Nav() {
                     <img id="ap-logo" src={AP_logo}></img>
                 </Link>
             </Col>
-            <Col id="search-col"><p className="ml-5">Search Articles</p></Col>
-            <Col id="saved-col"><p>Saved Articles</p></Col>
+            <Col id="search-col">
+                <Link to={"/"} className=" article-link ml-5">Search Articles</Link></Col>
+            <Col id="saved-col">
+                <Link to={"/saved"} className="article-link">Saved Articles</Link>
+            </Col>
         </Row>
     )
 }

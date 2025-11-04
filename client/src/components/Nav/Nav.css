@@ -7,6 +7,15 @@
     font-family: 'Oswald', sans-serif;
 }
 
+.article-link {
+    text-decoration: none;
+    color: white;
+}
+
+.article-link:hover {
+    color: gray;
+}
+
 #ap-logo {
     height: auto;
     max-height: 80px;

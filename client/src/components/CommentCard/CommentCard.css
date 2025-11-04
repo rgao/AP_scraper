@@ -1,0 +1,12 @@
+.comment-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: left;
+}
+
+#comment-intro {
+    text-align: left;
+    font-weight: bold;
+}
