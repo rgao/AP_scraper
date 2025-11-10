@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import API from "../../utils/API.js";
 import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';

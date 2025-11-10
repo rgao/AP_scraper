@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Row, Col } from 'react-bootstrap'
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API.js";
 import CommentCard from "../../components/CommentCard/CommentCard.js"
 import "./ArticleThread.css"

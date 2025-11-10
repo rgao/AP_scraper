@@ -11,7 +11,7 @@ module.exports = (request, response) => {
     axios.get(queryURL).then(res => {
         var $ = cheerio.load(res.data);
         var articleArray = [];
-        console.log(res.data);
+        // console.log(res.data);
         $(".PagePromo").each((i, element) => {
             var article = {};
 
