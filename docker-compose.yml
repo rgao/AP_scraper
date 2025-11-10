@@ -1,0 +1,58 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: apscraper-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    image: apscraper-server
+    container_name: apscraper-node-server
+    volumes:
+      - ./server:/app/server
+      - /app/server/node_modules
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/aparticles 
+    depends_on:
+      - mongodb
+    # env_file: ./server/.env
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    image: apscraper-client
+    container_name: apscraper-react-client
+    command: npm start
+    volumes:
+      - ./client/:/app/client
+      - /app/client/node_modules
+    # environment:
+    #   REACT_APP_API_URL: http://server:5000
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

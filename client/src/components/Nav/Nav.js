@@ -8,7 +8,7 @@ function Nav() {
         <Row className="navbar navbar-expand-lg bg-dark">
             <Col id="logo-col">
                 <Link to={"/"}>
-                    <img id="ap-logo" src={AP_logo}></img>
+                    <img id="ap-logo" alt="" src={AP_logo}></img>
                 </Link>
             </Col>
             <Col id="search-col">

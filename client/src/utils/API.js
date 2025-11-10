@@ -1,31 +1,34 @@
 import axios from "axios";
+import API_BASE_URL from './apiconfig.js';
 
-export default {
+const API ={
     searchArticles: (topic, sortValue) => {
         // console.log(topic, sortValue);
-        return axios.get(`http://localhost:5000/api/search/?topic=${topic}&sortBy=${sortValue}`);
+        return axios.get(`${API_BASE_URL}/api/search/?topic=${topic}&sortBy=${sortValue}`);
     },
 
     getArticles: () => {
-        return axios.get("http://localhost:5000/api/articles/");
+        return axios.get(`${API_BASE_URL}/api/articles/`);
     },
 
     saveArticle: saveData => {
         console.log(saveData);
-        return axios.post("http://localhost:5000/api/articles/", saveData);
+        return axios.post(`${API_BASE_URL}/api/articles/`, saveData);
     },
 
     updateArticle: (id, comments) => {
         console.log(id, comments)
-        return axios.put("http://localhost:5000/api/article/" + id, comments);
+        return axios.put(`${API_BASE_URL}/api/article/` + id, comments);
     },
 
     deleteArticle: id => {
         console.log(id)
-        return axios.delete("http://localhost:5000/api/article/" + id);
+        return axios.delete(`${API_BASE_URL}/api/article/` + id);
     },
 
     getArticle: id => {
-        return axios.get("http://localhost:5000/api/article/" + id);
+        return axios.get(`${API_BASE_URL}/api/article/` + id);
     }
 };
+
+export default API;

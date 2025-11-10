@@ -1,4 +1,4 @@
-import { Button, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import "./CommentCard.css";
 
 function CommentCard(props) {
