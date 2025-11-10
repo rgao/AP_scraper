@@ -6,7 +6,7 @@ import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';
 import './Home.css'
 
 function Home() {
-
+    console.log(process.env.NODE_ENV, process.env.REACT_APP_API_URL);
     const [articles, setArticles] = useState([]);
     const [topic, setTopic] = useState("");
     const [sortBy, setSortBy] = useState("relevance");
@@ -39,7 +39,7 @@ function Home() {
 
             API.searchArticles(topic, sortValue)
                 .then(response => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     setArticles(response.data);
                     setTopic("");
                 })
