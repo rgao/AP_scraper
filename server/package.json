@@ -5,9 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "start:prod": "NODE_ENV=production node index.js",
     "dev": "concurrently \"node index.js\" \"cd ../client && npm start\"",
-    "prod": "concurrently \"npm run start:prod\" \"cd ../client && npm run build\""
+    "prod": "NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "",

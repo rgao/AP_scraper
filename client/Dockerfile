@@ -1,19 +1,18 @@
-#  Dockerfile for React client
+FROM node:lts-alpine 
 
-FROM node:lts-alpine
+WORKDIR /app/client
 
-# Create App Directory
-WORKDIR /app/server
-
-# Install Dependencies
 COPY package*.json ./
 
 RUN npm install --silent
 
-# Copy app source code
 COPY . .
 
-# Exports
+RUN npm run build
+
+# Install a simple static server to serve the React build
+RUN npm install -g serve 
+
 EXPOSE 3000
 
-CMD ["npm", "run", "build"]
+CMD ["serve", "-s", "build", "-l", "3000"]
