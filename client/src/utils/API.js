@@ -8,6 +8,7 @@ const API ={
     },
 
     getArticles: () => {
+        console.log(API_BASE_URL);
         return axios.get(`${API_BASE_URL}/api/articles/`);
     },
 
