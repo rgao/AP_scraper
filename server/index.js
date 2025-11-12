@@ -37,9 +37,7 @@ app.get("/", (_, res) => {
 
 // Serve static assets
 const path = require("path");
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../../client/build"));
-} else {
+if (process.env.NODE_ENV != "production") {
   app.use(express.static(path.join(__dirname, '../../client/public')));
 };
 
