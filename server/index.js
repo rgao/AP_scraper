@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require('cors');
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   credentials: true, // Allow sending cookies/authentication headers
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
