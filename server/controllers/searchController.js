@@ -4,15 +4,15 @@ const cheerio = require("cheerio");
 module.exports = (request, response) => {
 
     const query = request.query
-    // console.log(query);
 
-    const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortValue}`;
+    const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortBy}`;
+    console.log(queryURL);
 
     axios.get(queryURL).then(res => {
         var $ = cheerio.load(res.data);
         var articleArray = [];
         // console.log(res.data);
-        $(".PagePromo").each((i, element) => {
+        $(".PagePromo").each((__, element) => {
             var article = {};
 
             article.title = $(element).attr("data-gtm-region");

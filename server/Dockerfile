@@ -1,5 +1,4 @@
 #  Dockerfile for Node Express Backend
-
 FROM node:lts-alpine
 
 # Create App Directory

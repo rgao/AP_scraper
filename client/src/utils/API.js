@@ -2,9 +2,8 @@ import axios from "axios";
 import API_BASE_URL from './apiconfig.js';
 
 const API ={
-    searchArticles: (topic, sortValue) => {
-        // console.log(topic, sortValue);
-        return axios.get(`${API_BASE_URL}/api/search/?topic=${topic}&sortBy=${sortValue}`);
+    searchArticles: (topic, sortBy) => {
+        return axios.get(`${API_BASE_URL}/api/search/?topic=${topic}&sortBy=${sortBy}`);
     },
 
     getArticles: () => {
