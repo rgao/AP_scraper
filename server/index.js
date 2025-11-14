@@ -1,11 +1,13 @@
+// Load environment variables
 require('dotenv').config();
 if (process.env.NODE_ENV === 'production') {
   require('dotenv').config({ path: './.env.production' });
 };
 
+// Express setup
 const express = require("express");
 const app = express();
-console.log("Environment:", process.env.NODE_ENV, process.env.PORT);
+// console.log("Environment:", process.env.NODE_ENV, process.env.FRONTEND_URL);
 
 // Middlewares
 const bodyParser = require("body-parser");
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require('cors');
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Allow requests from this origin; will fail in production mode since frontend is not localhost:3000
   credentials: true, // Allow sending cookies/authentication headers
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
