@@ -6,13 +6,13 @@ import './Saved.css'
 import { Row, Col } from 'react-bootstrap';
 
 function Saved() {
-
-    const [savedArticles, setSavedArticles] = useState([]);
-    const [message, setMessage] = useState("");
-    const [queryMessage, setQueryMessage] = useState("");
-    const [savedMessage, setSavedMessage] = useState("");
+    const [savedArticles, setSavedArticles] = useState([]); // Array to hold saved articles
+    const [message, setMessage] = useState(""); // Message for no saved articles
+    const [queryMessage, setQueryMessage] = useState(""); // Message to prompt querying for articles
+    const [savedMessage, setSavedMessage] = useState(""); // Message for saved articles section
 
     const getSavedArticles = () => {
+        /* Fetch saved articles from the database */
         API.getArticles()
             .then(response => {
                 console.log(response.data);
@@ -23,15 +23,14 @@ function Saved() {
     };
 
     const handleDelete = (id) => {
-        console.log(id)
+        /* Delete article from the database */
         API.deleteArticle(id)
             .then(() => getSavedArticles())
             .catch(error => console.log(error));
     };
 
     const checkArticles = (articles) => {
-        // console.log(articles)
-
+        /* Check if there are saved articles and set messages accordingly */
         if (articles.length === 0) {
             setMessage("There are no saved articles.");
             setQueryMessage(">> Query for articles.");

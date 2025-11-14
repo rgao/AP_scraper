@@ -6,14 +6,15 @@ import CommentCard from "../../components/CommentCard/CommentCard.js"
 import "./ArticleThread.css"
 
 function ArticleThread() {
-    const [article, setArticle] = useState({});
-    const [comment, setComment] = useState("");
-    const [comment_disable, setCommentDisable] = useState(true);
-    const [saved_comment_message, setSavedCommentMessage] = useState("Save Comment");
-    const [comment_array, setCommentArray] = useState([]);
-    const { articleId } = useParams();
+    const [article, setArticle] = useState({}); // Object to hold article details
+    const [comment, setComment] = useState(""); // Comment input
+    const [comment_disable, setCommentDisable] = useState(true); // Disable state for comment button
+    const [saved_comment_message, setSavedCommentMessage] = useState("Save Comment"); // Message for save comment button
+    const [comment_array, setCommentArray] = useState([]); // Array to hold comments
+    const { articleId } = useParams(); // Get article ID from URL parameters
 
     const getArticle = (id) => {
+        /* Fetch article details by ID */
         API.getArticle(id)
             .then(response => {
                 // console.log(response.data)
@@ -23,6 +24,7 @@ function ArticleThread() {
     };
 
     const handleInput = (event) => {
+        /* Handle comment input changes */
         event.preventDefault();
 
         var btn_status;
@@ -38,7 +40,7 @@ function ArticleThread() {
     };
 
     const handleSubmit = (id, newComment) => {
-        console.log(newComment);
+        /* Add new comment to article */
         var comments = comment_array;
         comments.push(newComment);
         setCommentArray(comments);
@@ -51,13 +53,14 @@ function ArticleThread() {
     };
 
     const handleUpdate = (id, comment) => {
+        /* Update article with new comment array */
         API.updateArticle(id, comment)
             .then(response => console.log(response.data))
             .catch(error => console.log(error));
     };
 
     const handleDelete = (articleId, commentIndex) => {
-        // console.log(articleId, commentIndex);
+        /* Delete comment from article */
         var comments = comment_array;
         comments.splice(commentIndex, 1);
         setCommentArray(comments);
@@ -65,6 +68,7 @@ function ArticleThread() {
         getArticle(articleId);
     };
 
+    // Fetch saved articles on component mount
     useState(() => {
         getArticle(articleId);
     }, []);

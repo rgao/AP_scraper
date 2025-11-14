@@ -3,6 +3,7 @@ import { Button, Row, Col } from 'react-bootstrap'
 import "./SavedArticle.css";
 
 function SavedArticle(props) {
+    /* Component to display a saved article with options to view comments or delete */
     return (
         <div className="container">
             <Row className="article mb-3 ml-0 mr-0">

@@ -32,6 +32,7 @@ This project is a MERN (Mongo-Express-React-Node) app that scrapes articles from
 * UI is flexible for most screen sizes.
 
 * Potential future feature: user database along with user authentication for user-linked comments
+* Planned minor improvements: fix old dates from scraped data and add a return button for article comment threads
 
 ## Preview
 

@@ -4,6 +4,7 @@ import AP_logo from "../../utils/images/ap_logo.png"
 import "./Nav.css"
 
 function Nav() {
+    /* Navbar component with links to home and saved articles */
     return (
         <Row className="navbar navbar-expand-lg bg-dark">
             <Col id="logo-col">
