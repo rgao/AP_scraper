@@ -4,10 +4,9 @@ const cheerio = require("cheerio");
 module.exports = (request, response) => {
 
     const query = request.query
-
     const queryURL = `https://apnews.com/search?q=${query.topic}&s=${query.sortBy}`;
-    console.log(queryURL);
 
+    // Scraping URL
     axios.get(queryURL).then(res => {
         var $ = cheerio.load(res.data);
         var articleArray = [];

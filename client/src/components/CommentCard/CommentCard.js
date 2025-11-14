@@ -2,6 +2,7 @@ import { Row, Col } from 'react-bootstrap'
 import "./CommentCard.css";
 
 function CommentCard(props) {
+    /* Component to display individual comments */
     return (
         <div className="comment-card my-3">
             <Row className="comment-row mb-2">

@@ -5,14 +5,13 @@ import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';
 import './Home.css'
 
 function Home() {
-    // console.log(process.env.NODE_ENV);
-    const [articles, setArticles] = useState([]);
-    const [topic, setTopic] = useState("");
-    const [sortBy, setSortBy] = useState("0");
-    const [topicError, setTopicError] = useState("");
+    const [articles, setArticles] = useState([]); // Array to hold searched articles
+    const [topic, setTopic] = useState(""); // Search topic input
+    const [sortBy, setSortBy] = useState("0"); // Sort by option
+    const [topicError, setTopicError] = useState(""); // Error message for topic input
 
     const handleChange = (e) => {
-        // console.log(e.target.name, e.target.value);
+        /* handle input changes for topic and sortBy */
         const { name, value } = e.target;
         if (name === "topic") {
             setTopic(value);
@@ -23,12 +22,12 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        /* Validate topic input and make API call */
         if (topic === "") {
             setTopicError("Please specify a topic");
         } else {
             setTopicError("");
-    
+            // Fetch articles based on topic and sortBy
             API.searchArticles(topic, parseInt(sortBy))
                 .then(response => {
                     console.log(response.data);
@@ -42,7 +41,7 @@ function Home() {
     };
 
     const handleSave = (article) => {
-        // console.log("Saving article:", article);
+        /* Save article to the database */
         API.saveArticle(article)
             .then(response => console.log(response.data))
             .catch(error => console.log(error));

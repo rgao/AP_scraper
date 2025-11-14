@@ -1,6 +1,7 @@
 const db = require("../models");
 
 module.exports = {
+    // Get all articles that match the query parameters
     findAll: (request, response) => {
         db.Article
             .find(request.query)
@@ -24,6 +25,7 @@ module.exports = {
             .catch(error => response.status(422).json(error));
     },
 
+    // Update an article's commentary by ID
     update: async (req, res) => {
         try {
             const { id } = req.params; // Get the ID from URL parameters
@@ -41,6 +43,7 @@ module.exports = {
         }   
     },
 
+    // Delete an article by ID
     remove: async (req, res) => {
         try {
             const { id } = req.params; // Get the ID from URL parameters

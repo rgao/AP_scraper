@@ -6,6 +6,7 @@ import ArticleThread from "./pages/ArticleThread/ArticleThread.js"
 import Footer from "./components/Footer/Footer.js";
 import './App.css';
 
+// Main App component that sets up routing and layout
 function App() {
   return (
     <Router>
@@ -13,7 +14,7 @@ function App() {
         <Nav />
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/saved" element={<Saved/>} />
+          <Route exact path="/saved" element={<Saved/>} /> 
           <Route path ="/saved/:articleId" element={<ArticleThread/>}/>
           <Route path="*" element={<Home/>} />
         </Routes>
