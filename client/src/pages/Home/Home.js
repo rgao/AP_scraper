@@ -1,15 +1,14 @@
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import API from "../../utils/API.js";
 import SearchedArticle from '../../components/ArticleCard/SearchedArticle.js';
 import './Home.css'
 
 function Home() {
-    console.log(process.env.NODE_ENV, process.env.REACT_APP_API_URL);
+    // console.log(process.env.NODE_ENV);
     const [articles, setArticles] = useState([]);
     const [topic, setTopic] = useState("");
-    const [sortBy, setSortBy] = useState("relevance");
+    const [sortBy, setSortBy] = useState("0");
     const [topicError, setTopicError] = useState("");
 
     const handleChange = (e) => {
@@ -29,15 +28,8 @@ function Home() {
             setTopicError("Please specify a topic");
         } else {
             setTopicError("");
-            // Implement API call logic here
-            let sortValue = "0";
-            if (sortBy === "oldest") {
-                sortValue = "2";
-            } else if (sortBy === "newest") {
-                sortValue = "3";
-            };
-
-            API.searchArticles(topic, sortValue)
+    
+            API.searchArticles(topic, parseInt(sortBy))
                 .then(response => {
                     console.log(response.data);
                     setArticles(response.data);
@@ -82,9 +74,9 @@ function Home() {
                             value={sortBy}
                             onChange={handleChange}
                         >
-                            <option value="relevance">Relevance</option>
-                            <option value="newest">Newest</option>
-                            <option value="oldest">Oldest</option>
+                            <option value="0">Relevance</option>
+                            <option value="3">Newest</option>
+                            <option value="2">Oldest</option>
                         </select>
                     </div>
                     <Button variant="primary" type="submit" id="search-btn" onClick={handleSubmit}>
