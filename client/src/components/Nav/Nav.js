@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Row, Col } from 'react-bootstrap'
-import AP_logo from "../../utils/ap_logo.png"
+import AP_logo from "../../utils/images/ap_logo.png"
 import "./Nav.css"
 
 function Nav() {
